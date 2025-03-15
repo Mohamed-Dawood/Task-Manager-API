@@ -23,15 +23,6 @@ export const getTask = asyncWrapper(async (req, res, next) => {
 
   if (!task) {
     return next(createCustomError(`No task with id : ${id}`, 404));
-
-    // const error = new Error('Not Found');
-    // error.status = 404;
-    // return next(error);
-
-    // return res.status(404).json({
-    //   success: false,
-    //   msg: `No task with id : ${id}`,
-    // });
   }
 
   res.status(200).json({
