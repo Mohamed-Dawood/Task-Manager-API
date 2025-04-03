@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import { connectDB } from './db/connect.js';
 import taskRouter from './routes/taskRoute.js';
@@ -13,6 +14,7 @@ dotenv.config();
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 if (process.env.NODE_ENV !== 'Production') {
   app.use(morgan('dev'));
 }
